@@ -3,7 +3,8 @@
 This is a Django-based REST API designed specifically for QA engineers to practice and refine their testing skills. It provides a realistic environment for testing API endpoints using tools like Postman, curl, and Swagger/OpenAPI.
 
 [Russian version of README](README_RU.md)
-[QA Engineer Guide](QA_GUIDE.md) — **Open this once everything is installed!**
+
+[QA Engineer Tutorial](QA_GUIDE.md) — **Open this once everything is installed!**
 
 Key features for testing:
 - **Authentication**: JWT-based authentication flow.
