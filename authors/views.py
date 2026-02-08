@@ -34,6 +34,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
 class AuthorLoginView(generics.GenericAPIView):
     serializer_class = AuthorLoginSerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = []
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -48,6 +49,7 @@ class AuthorLoginView(generics.GenericAPIView):
                     return Response({"detail": "Author is inactive / Автор неактивен"}, status=status.HTTP_403_FORBIDDEN)
                 refresh = RefreshToken.for_user(author)
                 return Response({
+                    'id': author.id,
                     'refresh': str(refresh),
                     'access': str(refresh.access_token),
                 })

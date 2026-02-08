@@ -9,6 +9,11 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password', 'full_name', 'description', 'active', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at', 'active']
 
+    def __init__(self, *args, **kwargs):
+        super(AuthorSerializer, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['username'].required = False
+
     def validate(self, data):
         # Only require password for POST (create)
         if not self.instance and 'password' not in data:
